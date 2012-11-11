@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Activity2Phone options</title>
+  </head>
+  <style>
+    .valuecell {
+      width: 350px;
+    }
+
+    #timeout {
+      text-align: right;
+      width: 50px;
+    }
+
+    #description {
+      font-style: italic;
+    }
+  </style>
+  <body>
+  <form id="options">
+    <table>
+      <tr>
+        <td>Notify phone after being idle for</td>
+        <td class="valuecell"><input title="Amount of minutes after which you are considered to be away from your computer." type="number" id="timeout" value="15" min="1" /> minutes</td>
+      </tr>
+      <tr>
+        <td>Notify My Android API key:</td>
+        <td class="valuecell"><input title="This should be a 48 wide hexadecimal string, obtained at NotifyMyAndroid.com" type="text" id="nma_apikey" value="" pattern="[a-f0-9]{48}" maxlength="48" size="50" /></td>
+      </tr>
+      <tr><td></td><td class="valuecell"><span id="description">This application uses the service <a href="http://www.notifymyandroid.com/">Notify My Android</a>. Therefore, to make this application work, you need to create an account at NMA and create an API key. You can enter/change the API key at any time by going to the <em>Extensions</em> page in Chrome and click the <em>Options</em> link at this application.</span></td></tr>
+      <tr><td></td><td><input id="save" type="submit" value="Save" /></td></tr>
+    </table>
+  </form>
+  <script src="options.js"></script>
+  </body>
+</html>

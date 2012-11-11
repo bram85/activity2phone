@@ -1,0 +1,18 @@
+{
+  "name": "Activity2Phone",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "Sends a signal when you are at your computer or not.",
+  "app": {
+    "background": { "scripts": [ "background.js" ] }
+  },
+  "permissions": [
+    "background",
+    "idle",
+    "storage",
+
+    "https://www.notifymyandroid.com/publicapi/*"
+  ],
+  "offline_enabled": false,
+  "options_page": "options.html"
+}
