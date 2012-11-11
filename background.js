@@ -72,9 +72,7 @@ var Activity2Phone = function() {
         }
       }
 
-      if ( !DEBUG ) {
-        request.send( content );
-      }
+      request.send( content );
     }
 
     return {
