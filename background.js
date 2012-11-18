@@ -111,7 +111,10 @@ var Activity2Phone = function() {
     }
   } );
 
-  function loadSettings() {
+  function loadSettings( pCallback ) {
+    var hasAPIkey = false;
+    var hasTimeout = false;
+
     chrome.storage.local.get( "timeout", function( pItems ) {
       if ( pItems.hasOwnProperty( "timeout" ) ) {
         config.timeout = pItems.timeout * ( DEBUG ? 1 : 60 );
@@ -119,17 +122,24 @@ var Activity2Phone = function() {
           config.timeout = 15;
         }
       }
+
+      hasTimeout = true;
+      if ( hasAPIkey ) {
+        pCallback();
+      }
     } );
 
     chrome.storage.sync.get( "apikey", function( pItems ) {
       config.apikey = pItems.hasOwnProperty( "apikey" ) ? pItems.apikey : "";
+
+      hasAPIkey = true;
+      if ( hasTimeout ) {
+        pCallback();
+      }
     } );
   }
 
-  loadSettings();
-  // loadSettings performs async ops, so wait a sec before marking ourselves as
-  // active
-  setTimeout( setActive, 1000 );
+  loadSettings( setActive ); // callback
 
   chrome.runtime.onSuspend.addListener( setIdle );
   chrome.storage.onChanged.addListener( loadSettings );
