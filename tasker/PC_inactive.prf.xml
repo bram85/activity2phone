@@ -4,7 +4,7 @@
 		<edate>1353259614311</edate>
 		<id>66</id>
 		<mid0>68</mid0>
-		<nme>PC: niet actief</nme>
+		<nme>PC: idle</nme>
 		<Event sr="con0" ve="2">
 			<code>448</code>
 			<pri>0</pri>

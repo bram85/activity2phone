@@ -5,7 +5,7 @@
 		<edate>1352631432398</edate>
 		<id>50</id>
 		<mid0>65</mid0>
-		<nme>PC: actief</nme>
+		<nme>PC: active</nme>
 		<Event sr="con0" ve="2">
 			<code>448</code>
 			<pri>0</pri>
