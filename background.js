@@ -85,14 +85,27 @@ var Activity2Phone = function() {
     };
   }();
 
+  function logWithTime( pMessage ) {
+    function leadingZero( pValue ) {
+      return pValue < 10 ? '0' + pValue : pValue.toString();
+    }
+
+    var d = new Date();
+    var hours = leadingZero( d.getHours() );
+    var minutes = leadingZero( d.getMinutes() );
+    var seconds = leadingZero( d.getSeconds() );
+
+    console.log( '[' + hours + ':' + minutes + ':' + seconds + "] " + pMessage );
+  }
+
   function setActive() {
-    console.log( "User is active." );
+    logWithTime( "User is active." );
     currentState = "active";
     NMA.active();
   }
 
   function setIdle() {
-    console.log( "User is idle." );
+    logWithTime( "User is idle." );
     currentState = "idle";
     NMA.idle();
   }
